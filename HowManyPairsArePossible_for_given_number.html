@@ -1,0 +1,59 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>How many couples are possible</title>
+
+    <style>
+    #result {
+        position: absolute;
+        top: 122px;
+        left: 10px;
+        width: 200px;
+        height: 20px;
+        border: 1px solid green;
+    }
+    input {
+        width: 50px;
+    }
+    </style>
+
+</head>
+<body>
+
+Enter a number to calculate the pair-/couple-possibilities. <br>
+e.g. if we have 20 people we have 190 possibilities to build a pair/couple.<br><br>
+<input id="getInputValue" value=""></input>
+<button name="button1" id="button1" onClick="myFormula();"> How many pairs/couples are possible? </button><br><br>
+The amount of pairs/couple possibilities:<br>
+<div id="result"></div>
+
+<script>
+    'use strict';
+
+    // The formula is 1*(n-1) + 1*(n-2) + 1*(n-3) ... 
+    // so often till we reached the amount of -1
+
+    // Die Formel lautet 1*(n-1) + 1*(n-2) + 1*(n-3) ... 
+    // sooft bis die Anzahl minus 1 erreicht ist
+
+    let myFormula = function(){
+        let theGivenNumber = document.getElementById('getInputValue').value;
+        let myResult = document.getElementById('result');
+        let oneLoopResult = 0;
+
+        for (let i=0; i<theGivenNumber; i++){
+            oneLoopResult = oneLoopResult + (1 * (theGivenNumber - (theGivenNumber-i)));
+            if (i == theGivenNumber-1){
+                myResult.innerText = oneLoopResult;
+            }
+        }
+    };
+
+</script>
+
+</body>
+</html>
+
